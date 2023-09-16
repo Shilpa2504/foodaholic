@@ -42,10 +42,7 @@
     ]
   },
   "devDependencies": {
-    
-   
     "eslint": "^8.47.0",
     "eslint-plugin-react": "^7.33.1"
-   
   }
 }
