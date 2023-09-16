@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const mongoURI='mongodb+srv://ogo:x8zbOYQ0kNwJd3Xe@cluster0.vcwlcow.mongodb.net/ogo?retryWrites=true&w=majority'
+const mongoose = require('mongoose')
+const dotenv=require("dotenv").config()
 const mongoDB  =async() =>{
-  await  mongoose.connect(mongoURI, (err, result) => {
+  await  mongoose.connect(process.env.MONGODB_URL, (err, result) => {
         if (err)
             console.log("error ,......", err);
         else {
