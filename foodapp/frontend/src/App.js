@@ -4,6 +4,7 @@ import Home from './screens/Home';
 import Login from './screens/Login'
 import Signup from './screens/Signup'
 import MyOrder from './screens/MyOrder'
+import toast,{Toaster} from "react-hot-toast";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,8 +18,9 @@ import { CartProvider } from './components/ContextReducer'
 function App() {
   return (
   
-   
-<CartProvider>     
+  <>
+  <Toaster/>
+  <CartProvider>     
    <Router>
         <div>
           <Routes>
@@ -30,6 +32,8 @@ function App() {
         </div>
       </Router>
       </CartProvider>
+  </> 
+
     
   );
 }

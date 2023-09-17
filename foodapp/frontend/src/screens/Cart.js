@@ -1,4 +1,6 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState} from 'react';
+import { MdDelete } from 'react-icons/md';
+import {toast} from "react-hot-toast"
 
 
 import {useCart,useDispatchCart} from '../components/ContextReducer';
@@ -26,6 +28,7 @@ export default function Cart() {
                 order_date:new Date().toDateString()
               })
         });
+        toast("Order Successful")
         console.log("Order Response:",response)
         if(response.status===200){
             dispatch({type:"DROP"})
@@ -54,7 +57,7 @@ export default function Cart() {
         <td>{food.qty}</td>
         <td>{food.size}</td> 
         <td>{food.price}</td>  
-        <td><button type="button" className="btn p-0" onClick={()=>{dispatch({type:"REMOVE",index:index })}}>Delete</button></td> </tr>
+        <td><button type="button" className="btn p-0" onClick={()=>{dispatch({type:"REMOVE",index:index })}}><MdDelete/></button></td> </tr>
 ))}
         </tbody>
     </table>

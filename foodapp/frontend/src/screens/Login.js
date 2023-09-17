@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
+import {toast} from "react-hot-toast"
+
 
 export default function Login() {
   const [credentials, setcredentials] = useState({email:"",password:""})
@@ -17,11 +19,12 @@ export default function Login() {
     const json=await response.json()
     console.log(json);
     if(!json.success){
-      alert("Enter valid credentials")
+      toast("Please enter valid credentials")
 
     }
     if(json.success){
-      localStorage.setItem("userEmail",credentials.email)
+        toast("Login Successful");
+          localStorage.setItem("userEmail",credentials.email)
       localStorage.setItem("authToken",json.authToken)
       console.log(localStorage.getItem("authToken"))
       navigate("/")
